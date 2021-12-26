@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { navigationReducer } from "src/slices";
+import { navigationReducer, locationSearchReducer } from "src/slices";
 
 export const store = configureStore({
-  reducer: { navigationReducer },
+  reducer: { navigationReducer, locationSearchReducer },
 });
 
 export type AppDispatch = typeof store.dispatch;

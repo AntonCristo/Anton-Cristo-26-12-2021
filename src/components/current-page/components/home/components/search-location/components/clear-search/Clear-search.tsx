@@ -1,12 +1,21 @@
 import clearSearchIcon from "src/assets/svg/clear.svg";
 import clearSearchIconDisabled from "src/assets/svg/clear-gray.svg";
 
-export const ClearSearch = () => {
-  const hasSearchValue = false;
+import classes from "./clear-search.module.css";
+
+type ClearSearchProps = {
+  searchedValue: string;
+  clearSearch: () => void;
+};
+
+export const ClearSearch = (props: ClearSearchProps) => {
+  const { clearSearch, searchedValue } = props;
 
   return (
     <img
-      src={hasSearchValue ? clearSearchIcon : clearSearchIconDisabled}
+      className={classes.clearSearch}
+      onClick={clearSearch}
+      src={!!searchedValue ? clearSearchIcon : clearSearchIconDisabled}
       alt="search-icon"
     />
   );
