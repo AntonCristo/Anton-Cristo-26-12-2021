@@ -1,0 +1,13 @@
+.currentWeather {
+  width: 100%;
+  padding: 25px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .currentWeather {
+    flex-direction: column;
+  }
+}
