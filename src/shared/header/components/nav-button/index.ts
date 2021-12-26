@@ -1,2 +1,2 @@
 export { NavButton } from "./Nav-button";
-export type { NavButtonProps } from "./Nav-button";
+export type { NavItem } from "./Nav-button";
