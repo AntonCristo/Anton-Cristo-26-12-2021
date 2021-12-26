@@ -1,10 +1,11 @@
 import classes from "./app.module.css";
-import { CurrentPage } from "./components";
+import { CurrentPage, CustomAlert } from "./components";
 
 const App = () => {
   return (
     <div className={classes.app}>
       <CurrentPage />
+      <CustomAlert />
     </div>
   );
 };
