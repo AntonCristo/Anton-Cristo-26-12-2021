@@ -9,11 +9,29 @@
   color: var(--main-color);
   font-family: "Outfit-300", Helvetica, sans-serif;
   font-size: var(--font-size-small);
+  display: flex;
+  align-items: center;
+}
+.navButton > span {
+  margin-left: 5px;
+}
+.navButton > img {
+  width: 20px;
+  margin-left: -2px;
 }
 .navButton:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.2);
 }
+.navButton:focus {
+  outline: none;
+}
 .active {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 800px) {
+  .navButton > span {
+    display: none;
+  }
 }
