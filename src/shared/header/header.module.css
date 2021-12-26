@@ -1,0 +1,38 @@
+:root {
+  --header-desktop-height: 80px;
+  --header-tablet-height: 60px;
+  --header-mobile-height: 40px;
+}
+
+.header {
+  height: var(--header-desktop-height);
+  box-shadow: var(--light-mode-box-shadow);
+  font-family: "outfit-800", Helvetica, sans-serif;
+  letter-spacing: 0.65px;
+  color: var(--main-color);
+  background: linear-gradient(
+    50deg,
+    rgba(239, 118, 128, 1) 10%,
+    rgba(161, 89, 160, 1) 30%,
+    rgba(102, 80, 175, 1) 60%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: var(--font-size-extra-large);
+  font-style: italic;
+}
+
+@media screen and (max-width: 1600px) {
+  .header {
+    height: var(--header-tablet-height);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    height: var(--header-mobile-height);
+    font-size: var(--font-size-small);
+  }
+}

@@ -1,17 +1,12 @@
-import { useAppDispatch } from "src/store";
-import { navigationActions } from "src/slices";
+import { Header } from "src/shared";
+
+import classes from "./home.module.css";
 
 export const Home = () => {
-  const dispatch = useAppDispatch();
-
-  const goToFavorites = () => {
-    dispatch(navigationActions.setLocation("/favorites"));
-  };
-
   return (
-    <div>
-      Home
-      <button onClick={goToFavorites}>favorites</button>
+    <div className={classes.home}>
+      <Header />
+      HOME
     </div>
   );
 };
