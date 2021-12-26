@@ -1,6 +1,6 @@
 import { Header } from "src/shared";
 
-import { SearchLocation } from "./components";
+import { SearchLocation, SelectedWeather } from "./components";
 
 import classes from "./home.module.css";
 
@@ -9,6 +9,7 @@ export const Home = () => {
     <div className={classes.home}>
       <Header />
       <SearchLocation />
+      <SelectedWeather />
     </div>
   );
 };

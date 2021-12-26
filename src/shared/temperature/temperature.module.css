@@ -1,0 +1,19 @@
+.temperature {
+  display: flex;
+  align-items: flex-end;
+  font-family: "outfit-400", Helvetica, sans-serif;
+}
+.circle {
+  aspect-ratio: 1/1;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+}
+.value {
+  display: flex;
+  align-items: flex-start;
+  color: var(--blue);
+}
+.units {
+  color: var(--pink);
+  font-family: "outfit-600", Helvetica, sans-serif;
+}

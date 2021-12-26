@@ -10,6 +10,7 @@
   box-shadow: var(--light-mode-box-shadow);
   padding: 10px 0;
   border-radius: 4px;
+  background-color: #fff;
 }
 .searchAutocomplete > li {
   margin: 4px;
