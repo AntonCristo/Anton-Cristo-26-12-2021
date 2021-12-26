@@ -1,0 +1,21 @@
+.weatherDescription {
+  padding-right: 20px;
+  max-width: 800px;
+  max-height: 120px;
+  font-size: var(--font-size-large);
+  overflow: auto;
+  font-family: "outfit-600", Helvetica, sans-serif;
+  text-transform: capitalize;
+  color: var(--purple);
+}
+
+@media screen and (max-width: 800px) {
+  .weatherDescription {
+    padding: 6px;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--purple);
+    border-radius: 6px;
+  }
+}
