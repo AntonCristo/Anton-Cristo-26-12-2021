@@ -37,12 +37,6 @@ export const SearchLocation = () => {
     dispatch(locationSearchActions.setCurrentSearch(typedValue));
   };
 
-  const clearSearchHandler = () => {
-    const resetSearchValue = "";
-
-    dispatch(locationSearchActions.setCurrentSearch(resetSearchValue));
-  };
-
   return (
     <div className={classes.searchLocation}>
       <div className={classes.inputWrapper}>
@@ -55,10 +49,7 @@ export const SearchLocation = () => {
           className={classes.searchInput}
           type="text"
         />
-        <ClearSearch
-          searchedValue={currentSearch}
-          clearSearch={clearSearchHandler}
-        />
+        <ClearSearch />
         {currentSearch ? (
           <SearchAutoComplete
             autocompleteResults={filteredAutocomleteResults}
