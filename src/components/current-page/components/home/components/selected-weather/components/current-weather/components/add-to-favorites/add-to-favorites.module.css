@@ -1,0 +1,28 @@
+.addToFavorite {
+  margin: 0;
+  margin-left: auto;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  font-size: var(--font-size-medium);
+  background-color: var(--blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.addToFavorite > img {
+  margin-left: 5px;
+}
+.addToFavorite:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 800px) {
+  .addToFavorite {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+}
