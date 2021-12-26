@@ -6,7 +6,7 @@ export const getInlineStyleByFontSize = (fontSize: "L" | "M" | "S") => {
 
   switch (fontSize) {
     case "M":
-      _fontSize = _fontSize * 2;
+      _fontSize = _fontSize * 3;
       _circleHeight = 10;
       break;
     case "L":
