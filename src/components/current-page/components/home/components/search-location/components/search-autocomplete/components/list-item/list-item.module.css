@@ -1,0 +1,12 @@
+.listItem {
+  font-size: var(--font-size-small);
+  font-family: "outfit-400", Helvetica, sans-serif;
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+}
+.listItem:hover {
+  cursor: pointer;
+  background-color: rgba(161, 89, 160, 0.1);
+  font-family: "outfit-600", Helvetica, sans-serif;
+}

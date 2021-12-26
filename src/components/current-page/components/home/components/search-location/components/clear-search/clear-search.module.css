@@ -1,0 +1,6 @@
+.clearSearch {
+  cursor: pointer;
+}
+.clearSearch:hover {
+  opacity: 0.6;
+}
