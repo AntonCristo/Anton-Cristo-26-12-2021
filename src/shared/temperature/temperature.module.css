@@ -17,3 +17,7 @@
   color: var(--pink);
   font-family: "outfit-600", Helvetica, sans-serif;
 }
+.units:hover {
+  color: var(--purple);
+  cursor: pointer;
+}
