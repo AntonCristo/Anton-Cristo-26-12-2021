@@ -1,15 +1,22 @@
 import { Temperature } from "src/shared";
+import { useAppSelector } from "src/store";
 
 import { Location, WeatherDescription, AddToFavorites } from "./components";
 
 import classes from "./current-weather.module.css";
 
 export const CurrentWeather = () => {
+  const currentWeather = useAppSelector((state) => state.weatherReducer);
+  const _location = currentWeather.location || "Default";
+  const _displayUnit = currentWeather.displayUnit;
+  const _value = currentWeather.temperature[_displayUnit].value || 20;
+  const _description = currentWeather.description;
+
   return (
     <div className={classes.currentWeather}>
-      <Temperature value={20} unit="C" fontSize="L" />
-      <Location location="Tel-Aviv" />
-      <WeatherDescription description="Sunny and shiny , go to the beach" />
+      <Temperature value={_value} unit={_displayUnit} fontSize="L" />
+      <Location location={_location} />
+      <WeatherDescription description={_description} />
       <AddToFavorites />
     </div>
   );
