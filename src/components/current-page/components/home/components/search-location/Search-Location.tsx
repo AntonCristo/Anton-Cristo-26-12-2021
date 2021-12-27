@@ -1,7 +1,11 @@
 import { ChangeEvent, KeyboardEvent } from "react";
 import searchIcon from "src/assets/svg/search.svg";
 import { useAppDispatch, useAppSelector } from "src/store";
-import { locationSearchActions, customAlertActions } from "src/slices";
+import {
+  locationSearchActions,
+  customAlertActions,
+  fetchAutocompleteResultsFromApi,
+} from "src/slices";
 
 import { SearchAutoComplete, ClearSearch } from "./components";
 
@@ -62,9 +66,14 @@ export const SearchLocation = () => {
     }
   };
 
+  const onClick = () => {
+    dispatch(fetchAutocompleteResultsFromApi("t"));
+  };
+
   return (
     <div className={classes.searchLocation}>
       <div className={classes.inputWrapper}>
+        <button onClick={onClick}>wish</button>
         <img src={searchIcon} alt="search-icon" />
         <input
           value={currentSearch}
