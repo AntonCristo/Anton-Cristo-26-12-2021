@@ -13,7 +13,6 @@ export interface WeatherState {
   description: string;
   displayUnit: "F" | "C";
   defaultLocationKey: string;
-  useDefault: boolean;
   defaultLocationName: string;
 }
 
@@ -21,7 +20,6 @@ const initialState: WeatherState = {
   displayUnit: "C",
   defaultLocationKey: "215854",
   defaultLocationName: "Tel-Aviv",
-  useDefault: true,
   location: "",
   locationKey: "",
   description: "",
