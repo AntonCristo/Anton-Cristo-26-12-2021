@@ -1,165 +1,75 @@
 import axios from "axios";
 import { LocationResult } from "src/slices";
 
-const mock = [
+const data: LocationResult[] = [
   {
-    Version: 1,
-    Key: "226396",
-    Type: "City",
-    Rank: 10,
-    LocalizedName: "Tokyo",
-    Country: {
-      ID: "JP",
-      LocalizedName: "Japan",
-    },
-    AdministrativeArea: {
-      ID: "13",
-      LocalizedName: "Tokyo",
-    },
+    key: "226396",
+    location: "Tokyo",
   },
   {
-    Version: 1,
-    Key: "106770",
-    Type: "City",
-    Rank: 11,
-    LocalizedName: "Taiyuan",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "SX",
-      LocalizedName: "Shanxi",
-    },
+    key: "106770",
+    location: "Taiyuan",
   },
   {
-    Version: 1,
-    Key: "106780",
-    Type: "City",
-    Rank: 11,
-    LocalizedName: "Tianjin",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "TJ",
-      LocalizedName: "Tianjin",
-    },
+    key: "106780",
+    location: "Tianjin",
   },
   {
-    Version: 1,
-    Key: "58491",
-    Type: "City",
-    Rank: 13,
-    LocalizedName: "Tongren",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "GZ",
-      LocalizedName: "Guizhou",
-    },
+    key: "58491",
+    location: "Tongren",
   },
   {
-    Version: 1,
-    Key: "102324",
-    Type: "City",
-    Rank: 13,
-    LocalizedName: "Tangshan",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "HE",
-      LocalizedName: "Hebei",
-    },
+    key: "102324",
+    location: "Tangshan",
   },
   {
-    Version: 1,
-    Key: "59573",
-    Type: "City",
-    Rank: 13,
-    LocalizedName: "Taizhou",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "JS",
-      LocalizedName: "Jiangsu",
-    },
+    key: "59573",
+    location: "Taizhou",
   },
   {
-    Version: 1,
-    Key: "60198",
-    Type: "City",
-    Rank: 13,
-    LocalizedName: "Tongliao",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "NM",
-      LocalizedName: "Inner Mongolia",
-    },
+    key: "60198",
+    location: "Tongliao",
   },
   {
-    Version: 1,
-    Key: "106571",
-    Type: "City",
-    Rank: 13,
-    LocalizedName: "Tai'an",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "SD",
-      LocalizedName: "Shandong",
-    },
+    key: "106571",
+    location: "Tai'an",
   },
   {
-    Version: 1,
-    Key: "58055",
-    Type: "City",
-    Rank: 15,
-    LocalizedName: "Tianshui",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "GS",
-      LocalizedName: "Gansu",
-    },
+    key: "58055",
+    location: "Tianshui",
   },
   {
-    Version: 1,
-    Key: "2333653",
-    Type: "City",
-    Rank: 15,
-    LocalizedName: "Taizhou",
-    Country: {
-      ID: "CN",
-      LocalizedName: "China",
-    },
-    AdministrativeArea: {
-      ID: "ZJ",
-      LocalizedName: "Zhejiang",
-    },
+    key: "2333653",
+    location: "Taizhou",
   },
 ];
 
+const API_KEY = "dqFvpSeXGNVSvEN056JaMBXbTIJ4yuSG";
+const REQUEST_URL =
+  "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
+
 export const fetchAutocompleteFromApi = async (searchText: string) => {
-  return mock.map((mockLocation) => {
-    const locationResult: LocationResult = {
-      key: mockLocation.Key,
-      location: mockLocation.LocalizedName,
-    };
-    return locationResult;
-  });
+  //TODO remove mock
+  return data;
+  // return axios
+  //   .get(REQUEST_URL, {
+  //     params: {
+  //       apikey: API_KEY,
+  //       q: searchText,
+  //     },
+  //   })
+  //   .then((weatherResponse) => {
+  //     return weatherResponse.data.map((mockLocation: any) => {
+  //       const locationResult: LocationResult = {
+  //         key: mockLocation.Key,
+  //         location: mockLocation.LocalizedName,
+  //       };
+  //       return locationResult;
+  //     });
+  //   })
+  //   .catch((err) => {
+  //     console.error(err);
+  //     //TODO: add error boundry component
+  //     throw new Error("[fetchAutocompleteFromApi]:: check console error!");
+  //   });
 };

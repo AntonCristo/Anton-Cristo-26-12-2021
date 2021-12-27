@@ -14,24 +14,17 @@ import classes from "./search-location.module.css";
 const PLACEHOLDER = "Type location..";
 const INVALID_INPUT_PATTERN = /[^a-zA-Z0-9 ]/g;
 
-const autocompleteMock = [
-  "Tel-Aviv",
-  "Beer-Sheva",
-  "Rishon-LeZion",
-  "Ashdod",
-  "Ramat-Gan",
-  "Netanya",
-  "Haifa",
-];
-
 export const SearchLocation = () => {
   const dispatch = useAppDispatch();
   const currentSearch = useAppSelector(
     (state) => state.locationSearchReducer
   ).currentSearch;
+  const searchAutocompleteResults = useAppSelector(
+    (state) => state.locationSearchReducer
+  ).searchResults;
 
-  const filteredAutocomleteResults = autocompleteMock.filter((ac) =>
-    ac.toLowerCase().includes(currentSearch.toLowerCase())
+  const filteredAutocomleteResults = searchAutocompleteResults.filter((ac) =>
+    ac.location.toLowerCase().includes(currentSearch.toLowerCase())
   );
 
   const onLocationSearchChangeHandler = (
@@ -50,6 +43,7 @@ export const SearchLocation = () => {
     }
 
     dispatch(locationSearchActions.setCurrentSearch(typedValue));
+    dispatch(fetchAutocompleteResultsFromApi(typedValue));
   };
 
   const clearSearchHandler = () => {
@@ -66,14 +60,9 @@ export const SearchLocation = () => {
     }
   };
 
-  const onClick = () => {
-    dispatch(fetchAutocompleteResultsFromApi("t"));
-  };
-
   return (
     <div className={classes.searchLocation}>
       <div className={classes.inputWrapper}>
-        <button onClick={onClick}>wish</button>
         <img src={searchIcon} alt="search-icon" />
         <input
           value={currentSearch}
