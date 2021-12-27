@@ -18,6 +18,3 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.forecastContainer > div:nth-last-child(1) {
-  margin-right: 0;
-}
