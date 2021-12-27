@@ -1,6 +1,6 @@
 import { useAppSelector } from "src/store";
 
-import { Favorites, Home } from "./components";
+import { Favorites, Home, Landing } from "./components";
 
 export const CurrentPage = () => {
   const appLocation = useAppSelector(
@@ -9,11 +9,13 @@ export const CurrentPage = () => {
 
   switch (appLocation) {
     case "/":
+      return <Landing />;
+    case "/home":
       return <Home />;
     case "/favorites":
       return <Favorites />;
     default:
       //TODO: 404 page
-      return <Home />;
+      return <div>404 not found</div>;
   }
 };
