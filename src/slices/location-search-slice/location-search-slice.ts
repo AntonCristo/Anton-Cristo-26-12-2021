@@ -8,7 +8,6 @@ export interface LocationResult {
 
 export interface LocationSearchState {
   currentSearch: string;
-  //TODO: set a type for returned api object
   searchResults: LocationResult[];
 }
 

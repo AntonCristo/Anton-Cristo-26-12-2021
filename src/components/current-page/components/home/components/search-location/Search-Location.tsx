@@ -43,7 +43,13 @@ export const SearchLocation = () => {
     }
 
     dispatch(locationSearchActions.setCurrentSearch(typedValue));
-    dispatch(fetchAutocompleteResultsFromApi(typedValue));
+    dispatch(fetchAutocompleteResultsFromApi(typedValue)).catch((err) => {
+      dispatch(
+        customAlertActions.customAlert(
+          "A Network error has happend, please true again later."
+        )
+      );
+    });
   };
 
   const clearSearchHandler = () => {

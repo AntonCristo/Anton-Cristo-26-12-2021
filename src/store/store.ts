@@ -3,10 +3,16 @@ import {
   navigationReducer,
   locationSearchReducer,
   customAlertReducer,
+  weatherReducer,
 } from "src/slices";
 
 export const store = configureStore({
-  reducer: { navigationReducer, locationSearchReducer, customAlertReducer },
+  reducer: {
+    navigationReducer,
+    locationSearchReducer,
+    customAlertReducer,
+    weatherReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;

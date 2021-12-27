@@ -1,5 +1,6 @@
 import axios from "axios";
 import { LocationResult } from "src/slices";
+import { AUTOCOMPLETE_REQUEST_URL, API_KEY } from "src/constants";
 
 const data: LocationResult[] = [
   {
@@ -44,15 +45,11 @@ const data: LocationResult[] = [
   },
 ];
 
-const API_KEY = "dqFvpSeXGNVSvEN056JaMBXbTIJ4yuSG";
-const REQUEST_URL =
-  "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
-
 export const fetchAutocompleteFromApi = async (searchText: string) => {
   //TODO remove mock
   return data;
   // return axios
-  //   .get(REQUEST_URL, {
+  //   .get(AUTOCOMPLETE_REQUEST_URL, {
   //     params: {
   //       apikey: API_KEY,
   //       q: searchText,
