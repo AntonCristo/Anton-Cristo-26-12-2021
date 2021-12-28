@@ -4,6 +4,7 @@ import { Spinner } from "src/shared";
 import {
   navigationActions,
   fetchCurrentWeatherByLocationKey,
+  fetchFiveDayForecastByLocationKey,
   weatherActions,
   customAlertActions,
 } from "src/slices";
@@ -19,11 +20,13 @@ export const Landing = () => {
     dispatch(fetchCurrentWeatherByLocationKey(weatherState.defaultLocationKey))
       .then(() => {
         dispatch(
-          weatherActions.setLocationName(weatherState.defaultLocationName)
+          fetchFiveDayForecastByLocationKey(weatherState.defaultLocationKey)
         );
       })
       .then(() => {
-        dispatch(navigationActions.setLocation("/home"));
+        dispatch(
+          weatherActions.setLocationName(weatherState.defaultLocationName)
+        );
       })
       .catch((err) => {
         dispatch(
@@ -42,9 +45,6 @@ export const Landing = () => {
         dispatch(fetchCurrentWeatherByLocationKey(clientKey)).then(() => {
           dispatch(weatherActions.setLocationName(clientLocationName));
         });
-      })
-      .then(() => {
-        dispatch(navigationActions.setLocation("/home"));
       })
       .catch((err) => {
         dispatch(
@@ -73,10 +73,20 @@ export const Landing = () => {
     //eslint-disable-next-line
   }, []);
 
+  if (!weatherState.networkError && weatherState.location) {
+    dispatch(navigationActions.setLocation("/home"));
+  } else {
+    dispatch(
+      customAlertActions.customAlert(
+        "Service is unavailable right now, please try again later."
+      )
+    );
+  }
+
   return (
     <div className={classes.landing}>
-      <div>Welcome</div>
-      <Spinner />
+      <div>{weatherState.networkError ? "Error :\\" : "Welcome"}</div>
+      {weatherState.networkError ? null : <Spinner />}
     </div>
   );
 };
