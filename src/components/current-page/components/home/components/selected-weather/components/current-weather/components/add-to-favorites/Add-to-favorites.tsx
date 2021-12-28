@@ -36,9 +36,17 @@ export const AddToFavorites = () => {
     );
   };
 
+  const removeCurrentLocationFromVaorites = () => {
+    dispatch(favoritesActions.removeFromFavorites(currentWeather.locationKey));
+  };
+
   return (
     <button
-      onClick={addCurrentLocationToFavorites}
+      onClick={
+        isFavorite
+          ? removeCurrentLocationFromVaorites
+          : addCurrentLocationToFavorites
+      }
       className={classes.addToFavorite}
     >
       {isFavorite ? "Saved!" : "Save"}{" "}
