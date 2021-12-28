@@ -1,8 +1,13 @@
 import { MouseEvent } from "react";
 import { Temperature } from "src/shared";
 import {
+  customAlertActions,
   favoritesActions,
   FavoritesItem as FavoritesItemType,
+  fetchCurrentWeatherByLocationKey,
+  fetchFiveDayForecastByLocationKey,
+  navigationActions,
+  weatherActions,
 } from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
 
@@ -31,7 +36,24 @@ export const FavoritesItem = (props: FavoritesItemProps) => {
   };
 
   const setHomePageToDisplayClickedWeather = () => {
-    alert("navigate and dipatch");
+    dispatch(fetchCurrentWeatherByLocationKey(favorite.locationKeyId))
+      .then(() => {
+        dispatch(fetchFiveDayForecastByLocationKey(favorite.locationKeyId));
+      })
+      .then(() => {
+        dispatch(weatherActions.setLocationName(favorite.locationName));
+        dispatch(weatherActions.setLocationKey(favorite.locationKeyId));
+      })
+      .then(() => {
+        dispatch(navigationActions.setLocation("/home"));
+      })
+      .catch(() => {
+        dispatch(
+          customAlertActions.customAlert(
+            "A Network error has happend, please true again later."
+          )
+        );
+      });
   };
 
   return (

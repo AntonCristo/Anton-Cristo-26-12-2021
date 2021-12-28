@@ -28,6 +28,12 @@ export const Landing = () => {
         dispatch(
           weatherActions.setLocationName(weatherState.defaultLocationName)
         );
+        dispatch(
+          weatherActions.setLocationKey(weatherState.defaultLocationKey)
+        );
+      })
+      .then(() => {
+        dispatch(navigationActions.setLocation("/home"));
       })
       .catch((err) => {
         dispatch(
@@ -43,9 +49,20 @@ export const Landing = () => {
       .then((location) => {
         const clientKey = location.data.Key;
         const clientLocationName = location.data.LocalizedName;
-        dispatch(fetchCurrentWeatherByLocationKey(clientKey)).then(() => {
-          dispatch(weatherActions.setLocationName(clientLocationName));
-        });
+        dispatch(fetchCurrentWeatherByLocationKey(clientKey));
+
+        return [clientKey, clientLocationName];
+      })
+      .then((geolocationResult) => {
+        dispatch(fetchFiveDayForecastByLocationKey(geolocationResult[0]));
+        return geolocationResult;
+      })
+      .then((geolocationResult) => {
+        dispatch(weatherActions.setLocationName(geolocationResult[1]));
+        dispatch(weatherActions.setLocationKey(geolocationResult[0]));
+      })
+      .then(() => {
+        dispatch(navigationActions.setLocation("/home"));
       })
       .catch((err) => {
         dispatch(
@@ -78,14 +95,6 @@ export const Landing = () => {
     defaultOrClientLocation();
     //eslint-disable-next-line
   }, []);
-
-  const isHomePageReady =
-    weatherState.location && weatherState.forecast.headline;
-
-  if (isHomePageReady) {
-    dispatch(navigationActions.setLocation("/home"));
-    return null;
-  }
 
   if (weatherState.networkError) {
     dispatch(
