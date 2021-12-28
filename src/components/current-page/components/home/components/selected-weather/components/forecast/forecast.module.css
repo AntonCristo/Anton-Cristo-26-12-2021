@@ -2,7 +2,7 @@
   width: calc(100% - 40px);
   margin-top: 10px;
   padding-top: 20px;
-  border-top: 1px solid var(--blue);
+  border-top: 2px solid var(--blue);
 }
 .header {
   font-family: "outfit-500", Helvetica, sans-serif;

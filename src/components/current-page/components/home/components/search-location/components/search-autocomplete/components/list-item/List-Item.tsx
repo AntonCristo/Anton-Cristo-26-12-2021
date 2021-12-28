@@ -6,6 +6,7 @@ import {
   weatherActions,
   customAlertActions,
   fetchFiveDayForecastByLocationKey,
+  navigationActions,
 } from "src/slices";
 import { useAppDispatch } from "src/store";
 
@@ -35,11 +36,14 @@ export const ListItem = (props: ListItemProps) => {
         dispatch(weatherActions.setLocationKey(item.key));
       })
       .catch(() => {
-        dispatch(
-          customAlertActions.customAlert(
-            "A Network error has happend, please true again later."
-          )
-        );
+        dispatch(navigationActions.setLocation("/"));
+        setTimeout(() => {
+          dispatch(
+            customAlertActions.customAlert(
+              "A Network error has happend, please true again later."
+            )
+          );
+        }, 0);
       });
     dispatch(locationSearchActions.setCurrentSearch(""));
   };

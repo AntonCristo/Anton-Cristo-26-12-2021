@@ -31,16 +31,6 @@ export const Landing = () => {
         dispatch(
           weatherActions.setLocationKey(weatherState.defaultLocationKey)
         );
-      })
-      .then(() => {
-        dispatch(navigationActions.setLocation("/home"));
-      })
-      .catch((err) => {
-        dispatch(
-          customAlertActions.customAlert(
-            "A Network Error Has Happend, Please Try Again Later!"
-          )
-        );
       });
   };
 
@@ -60,16 +50,6 @@ export const Landing = () => {
       .then((geolocationResult) => {
         dispatch(weatherActions.setLocationName(geolocationResult[1]));
         dispatch(weatherActions.setLocationKey(geolocationResult[0]));
-      })
-      .then(() => {
-        dispatch(navigationActions.setLocation("/home"));
-      })
-      .catch((err) => {
-        dispatch(
-          customAlertActions.customAlert(
-            "A Network Error Has Happend, Please Try Again Later!"
-          )
-        );
       });
   };
 
@@ -92,7 +72,9 @@ export const Landing = () => {
   }, []);
 
   useEffect(() => {
-    defaultOrClientLocation();
+    if (!weatherState.networkError) {
+      defaultOrClientLocation();
+    }
     //eslint-disable-next-line
   }, []);
 
@@ -102,6 +84,11 @@ export const Landing = () => {
         "Service is unavailable right now, please try again later."
       )
     );
+  }
+
+  if (!weatherState.networkError && weatherState.forecast.fiveDays.length) {
+    dispatch(navigationActions.setLocation("/home"));
+    return null;
   }
 
   return (

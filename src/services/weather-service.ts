@@ -15,13 +15,6 @@ export const fetchCurrentWeatherByLocationKey = async (locationKey: string) => {
     })
     .then((currentWeatherResponse) => {
       return currentWeatherResponse.data[0];
-    })
-    .catch((err) => {
-      console.error(err);
-      //TODO: add error boundry component
-      throw new Error(
-        "[fetchCurrentWeatherByLocationKey]:: check console error!"
-      );
     });
 };
 
@@ -41,11 +34,5 @@ export const fetchFiveDayForecastByLocationKey = async (
         headline: forecastResponse.data.Headline.Text,
         forecast: forecastResponse.data.DailyForecasts,
       };
-    })
-    .catch((err) => {
-      console.error(err);
-      throw new Error(
-        "[fetchFiveDayForecastByLocationKey]:: check console error!"
-      );
     });
 };

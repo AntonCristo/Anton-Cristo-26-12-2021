@@ -5,6 +5,7 @@ import {
   locationSearchActions,
   customAlertActions,
   fetchAutocompleteResultsFromApi,
+  navigationActions,
 } from "src/slices";
 
 import { SearchAutoComplete, ClearSearch } from "./components";
@@ -44,11 +45,14 @@ export const SearchLocation = () => {
 
     dispatch(locationSearchActions.setCurrentSearch(typedValue));
     dispatch(fetchAutocompleteResultsFromApi(typedValue)).catch((err) => {
-      dispatch(
-        customAlertActions.customAlert(
-          "A Network error has happend, please true again later."
-        )
-      );
+      dispatch(navigationActions.setLocation("/"));
+      setTimeout(() => {
+        dispatch(
+          customAlertActions.customAlert(
+            "A Network error has happend, please true again later."
+          )
+        );
+      }, 0);
     });
   };
 

@@ -48,11 +48,14 @@ export const FavoritesItem = (props: FavoritesItemProps) => {
         dispatch(navigationActions.setLocation("/home"));
       })
       .catch(() => {
-        dispatch(
-          customAlertActions.customAlert(
-            "A Network error has happend, please true again later."
-          )
-        );
+        dispatch(navigationActions.setLocation("/"));
+        setTimeout(() => {
+          dispatch(
+            customAlertActions.customAlert(
+              "A Network error has happend, please true again later."
+            )
+          );
+        }, 0);
       });
   };
 
