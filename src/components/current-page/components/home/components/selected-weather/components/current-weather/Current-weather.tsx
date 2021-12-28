@@ -1,7 +1,12 @@
 import { Temperature } from "src/shared";
 import { useAppSelector } from "src/store";
 
-import { Location, WeatherDescription, AddToFavorites } from "./components";
+import {
+  Location,
+  WeatherDescription,
+  AddToFavorites,
+  UnitsToggle,
+} from "./components";
 
 import classes from "./current-weather.module.css";
 
@@ -17,6 +22,7 @@ export const CurrentWeather = () => {
       <Temperature value={_value} unit={_displayUnit} fontSize="L" />
       <Location location={_location} />
       <WeatherDescription description={_description} />
+      <UnitsToggle />
       <AddToFavorites />
     </div>
   );
