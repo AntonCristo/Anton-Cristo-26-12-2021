@@ -79,7 +79,10 @@ export const Landing = () => {
     //eslint-disable-next-line
   }, []);
 
-  if (weatherState.location && weatherState.forecast.headline) {
+  const isHomePageReady =
+    weatherState.location && weatherState.forecast.headline;
+
+  if (isHomePageReady) {
     dispatch(navigationActions.setLocation("/home"));
     return null;
   }

@@ -9,7 +9,6 @@ export const Favorites = () => {
   const favoritesState = useAppSelector((state) => state.favoritesReducer);
 
   const hasFavorites = !!Object.keys(favoritesState.favorites).length;
-  console.log(Object.keys(favoritesState.favorites).length);
 
   return (
     <div>

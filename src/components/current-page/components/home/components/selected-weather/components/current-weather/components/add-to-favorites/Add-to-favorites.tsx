@@ -1,6 +1,10 @@
 import favoriteIcon from "src/assets/svg/favorites.svg";
 import favoriteIconGold from "src/assets/svg/favorites-gold.svg";
-import { favoritesActions, FavoritesItem } from "src/slices";
+import {
+  customAlertActions,
+  favoritesActions,
+  FavoritesItem,
+} from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
 
 import classes from "./add-to-favorites.module.css";
@@ -25,6 +29,11 @@ export const AddToFavorites = () => {
       locationName: currentWeather.location,
     };
     dispatch(favoritesActions.addToFavorites(currentLocationAsFavoritesItem));
+    dispatch(
+      customAlertActions.customAlert(
+        `${currentWeather.location} is now on Favorites page :)`
+      )
+    );
   };
 
   return (
