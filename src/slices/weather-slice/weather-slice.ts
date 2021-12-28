@@ -5,7 +5,7 @@ import {
   fetchFiveDayForecastByLocationKey,
 } from "./weather-slice-async-actions";
 
-type Temperature = {
+export type Temperature = {
   F: { value: number | undefined };
   C: { value: number | undefined };
 };

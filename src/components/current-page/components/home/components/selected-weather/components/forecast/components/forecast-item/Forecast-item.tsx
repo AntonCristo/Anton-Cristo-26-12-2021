@@ -33,7 +33,13 @@ export const ForecastItem = (props: ForecastItemProps) => {
         {foreCastItem.dayDescription}
       </div>
       <div className={classes.descriptionText}>
-        <div className={classes.descriptionTextHeader}>Night</div>
+        <div
+          className={[classes.descriptionTextHeader, classes.nightHeader].join(
+            " "
+          )}
+        >
+          Night
+        </div>
         {foreCastItem.nightDescription}
       </div>
     </div>

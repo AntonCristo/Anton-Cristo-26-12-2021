@@ -7,6 +7,7 @@ import {
   fetchFiveDayForecastByLocationKey,
   weatherActions,
   customAlertActions,
+  favoritesActions,
 } from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
 
@@ -69,13 +70,21 @@ export const Landing = () => {
   };
 
   useEffect(() => {
+    dispatch(favoritesActions.initFromLocalStorage());
+    //eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
     defaultOrClientLocation();
     //eslint-disable-next-line
   }, []);
 
-  if (!weatherState.networkError && weatherState.location) {
+  if (weatherState.location && weatherState.forecast.headline) {
     dispatch(navigationActions.setLocation("/home"));
-  } else {
+    return null;
+  }
+
+  if (weatherState.networkError) {
     dispatch(
       customAlertActions.customAlert(
         "Service is unavailable right now, please try again later."

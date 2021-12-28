@@ -1,0 +1,12 @@
+.itemsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding: 20px;
+}
+.subHeader {
+  margin-left: 20px;
+  color: var(--pink);
+  font-size: 24px;
+  font-family: "outfit-900", Helvetica, sans-serif;
+}
