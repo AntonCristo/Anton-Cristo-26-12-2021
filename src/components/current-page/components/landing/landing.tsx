@@ -86,7 +86,12 @@ export const Landing = () => {
     );
   }
 
-  if (!weatherState.networkError && weatherState.forecast.fiveDays.length) {
+  const isHomePageReady =
+    !weatherState.networkError &&
+    weatherState.forecast.fiveDays.length &&
+    weatherState.description;
+
+  if (isHomePageReady) {
     dispatch(navigationActions.setLocation("/home"));
     return null;
   }

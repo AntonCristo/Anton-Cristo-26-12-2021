@@ -19,7 +19,7 @@
     rgba(102, 80, 175, 0.5) 60%
   );
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 20px;
