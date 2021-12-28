@@ -5,6 +5,7 @@ import {
   locationSearchActions,
   weatherActions,
   customAlertActions,
+  fetchFiveDayForecastByLocationKey,
 } from "src/slices";
 import { useAppDispatch } from "src/store";
 
@@ -26,6 +27,9 @@ export const ListItem = (props: ListItemProps) => {
       throw new Error("[onLocationItemClickHandler]:: impossible error");
     }
     dispatch(fetchCurrentWeatherByLocationKey(clickedLocationKey))
+      .then(() => {
+        dispatch(fetchFiveDayForecastByLocationKey(clickedLocationKey));
+      })
       .then(() => {
         dispatch(weatherActions.setLocationName(item.location));
         dispatch(weatherActions.setLocationKey(item.key));

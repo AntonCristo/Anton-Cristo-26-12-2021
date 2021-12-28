@@ -11,3 +11,14 @@ export const fetchCurrentWeatherByLocationKey = createAsyncThunk(
     return response;
   }
 );
+
+export const fetchFiveDayForecastByLocationKey = createAsyncThunk(
+  "weather/fecthFiveDayForecast",
+  async (locationKey: string) => {
+    const response = await weatherService.fetchFiveDayForecastByLocationKey(
+      locationKey
+    );
+
+    return response;
+  }
+);

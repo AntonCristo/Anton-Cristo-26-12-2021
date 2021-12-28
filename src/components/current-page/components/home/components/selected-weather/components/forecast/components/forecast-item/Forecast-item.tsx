@@ -1,19 +1,41 @@
 import { Temperature } from "src/shared";
-import sunnyIcon from "src/assets/svg/wi-day-sunny.svg";
+import { DailyForecast } from "src/slices";
+import dayjs from "dayjs";
 
 import classes from "./forecast-item.module.css";
+import { useAppSelector } from "src/store";
 
 type ForecastItemProps = {
-  index: number;
+  foreCastItem: DailyForecast;
 };
 
 export const ForecastItem = (props: ForecastItemProps) => {
-  const { index } = props;
+  const { foreCastItem } = props;
+  const displayUnit = useAppSelector(
+    (state) => state.weatherReducer
+  ).displayUnit;
+
+  const _maxTemp = foreCastItem.maxTemp[displayUnit].value || 0;
+  const _minTemp = foreCastItem.minTemp[displayUnit].value || 0;
+
   return (
     <div className={classes.forecastItem}>
-      <img src={sunnyIcon} alt="weather-icon" />
-      <Temperature value={25} unit="C" fontSize="M" />
-      <div className={classes.dayOfWeek}>day {index}</div>
+      <div className={classes.dayOfWeek}>
+        {dayjs(foreCastItem.date).format("DD/MM ddd")}
+      </div>
+      <div className={classes.minMaxWrapper}>
+        <Temperature value={_minTemp} unit={displayUnit} fontSize="S" />
+        <div className={classes.seperator}>-</div>
+        <Temperature value={_maxTemp} unit={displayUnit} fontSize="S" />
+      </div>
+      <div className={classes.descriptionText}>
+        <div className={classes.descriptionTextHeader}>Day</div>
+        {foreCastItem.dayDescription}
+      </div>
+      <div className={classes.descriptionText}>
+        <div className={classes.descriptionTextHeader}>Night</div>
+        {foreCastItem.nightDescription}
+      </div>
     </div>
   );
 };

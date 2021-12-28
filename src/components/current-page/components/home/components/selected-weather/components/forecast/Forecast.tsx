@@ -1,14 +1,19 @@
+import { useAppSelector } from "src/store";
 import { ForecastItem } from "./components";
 
 import classes from "./forecast.module.css";
 
 export const Forecast = () => {
+  const weatherForeCast = useAppSelector(
+    (state) => state.weatherReducer
+  ).forecast;
+
   return (
     <div className={classes.forecast}>
-      <div className={classes.header}>Upcoming:</div>
+      <div className={classes.header}>{weatherForeCast.headline}</div>
       <div className={classes.forecastContainer}>
-        {[0, 1, 2, 3, 4].map((forecastItem, index) => (
-          <ForecastItem index={forecastItem} key={index} />
+        {weatherForeCast.fiveDays.map((forecastItem, index) => (
+          <ForecastItem key={forecastItem.date} foreCastItem={forecastItem} />
         ))}
       </div>
     </div>

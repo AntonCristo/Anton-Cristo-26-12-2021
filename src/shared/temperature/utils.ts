@@ -1,7 +1,7 @@
 const FONT_SIZE_TO_LINE_HEIGHT_RATION = 0.7;
 
 export const getInlineStyleByFontSize = (fontSize: "L" | "M" | "S") => {
-  let _fontSize = 20;
+  let _fontSize = 24;
   let _circleHeight = 6;
 
   switch (fontSize) {
