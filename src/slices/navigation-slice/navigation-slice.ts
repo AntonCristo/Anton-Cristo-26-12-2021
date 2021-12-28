@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type AppLocation = "/" | "/favorites";
+export type AppLocation = "/" | "/home" | "/favorites";
 
 export interface NavigationState {
   location: AppLocation;

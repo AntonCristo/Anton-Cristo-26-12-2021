@@ -9,7 +9,7 @@ export const Header = () => {
   const navigationItems: NavItem[] = [
     {
       text: "Home",
-      linkTo: "/",
+      linkTo: "/home",
       icon: homeIcon,
     },
     {

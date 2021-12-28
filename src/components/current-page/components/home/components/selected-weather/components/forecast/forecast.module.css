@@ -12,7 +12,12 @@
 .forecastContainer {
   padding: 20px;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.02);
+  background: linear-gradient(
+    0deg,
+    rgba(239, 118, 137, 0.2) 10%,
+    rgba(161, 89, 160, 0.2) 30%,
+    rgba(102, 80, 175, 0.5) 60%
+  );
   display: flex;
   align-items: center;
   justify-content: space-between;
