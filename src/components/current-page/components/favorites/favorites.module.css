@@ -9,4 +9,5 @@
   color: var(--pink);
   font-size: 24px;
   font-family: "outfit-900", Helvetica, sans-serif;
+  text-decoration: underline;
 }

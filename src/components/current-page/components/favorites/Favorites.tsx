@@ -15,7 +15,7 @@ export const Favorites = () => {
       <Header />
       <div className={classes.subHeader}>
         {hasFavorites
-          ? "Your favorite location, click to see current weather"
+          ? "Your favorite locations, click to see current weather"
           : "Save your default/Searched location to view on this page"}
       </div>
       <div className={classes.itemsWrapper}>
