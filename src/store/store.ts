@@ -4,6 +4,7 @@ import {
   locationSearchReducer,
   customAlertReducer,
   weatherReducer,
+  favoritesReducer,
 } from "src/slices";
 
 export const store = configureStore({
@@ -12,6 +13,7 @@ export const store = configureStore({
     locationSearchReducer,
     customAlertReducer,
     weatherReducer,
+    favoritesReducer,
   },
 });
 

@@ -36,10 +36,10 @@
 }
 .descriptionText {
   position: relative;
-  border: 2px solid gray;
+  border: 2px solid var(--blue);
   border-radius: 3px;
   width: 100%;
-  color: gray;
+  color: var(--pink);
   font-family: "outfit-600", Helvetica, sans-serif;
   margin-bottom: 20px;
   text-align: center;
@@ -48,8 +48,17 @@
 .descriptionTextHeader {
   position: absolute;
   font-family: "outfit-400", Helvetica, sans-serif;
-  top: 0;
-  left: calc(50% - 40px);
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  border: 2px solid var(--blue);
+  border-radius: 3px;
+  padding: 3px;
+  background-color: rgba(255, 255, 255);
+}
+.nightHeader {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
 }
 
 @media screen and (max-width: 800px) {
