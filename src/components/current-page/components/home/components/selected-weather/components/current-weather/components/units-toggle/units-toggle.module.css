@@ -1,0 +1,26 @@
+.unitsToggle {
+  margin-left: auto;
+}
+.toggleButton {
+  width: 32px;
+  aspect-ratio: 1/1;
+  border: none;
+  color: var(--blue);
+  background-color: #fff;
+  font-size: var(--font-size-small);
+  font-family: "outfit-500", Helvetica, sans-serif;
+  border-radius: 6px;
+  margin: 0 2px;
+}
+.toggleButton:hover,
+.active {
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--blue);
+}
+
+@media screen and (max-width: 800px) {
+  .unitsToggle {
+    display: none;
+  }
+}
