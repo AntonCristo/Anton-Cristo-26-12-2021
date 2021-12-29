@@ -1,6 +1,8 @@
-import classes from "./app.module.css";
+import { useBrowserBackButtonEventListener } from "src/hooks";
+
 import { CurrentPage, CustomAlert } from "./components";
-import { useBrowserBackButtonEventListener } from "./utilities";
+
+import classes from "./app.module.css";
 
 const App = () => {
   useBrowserBackButtonEventListener();
