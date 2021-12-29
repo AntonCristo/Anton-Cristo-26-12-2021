@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from "src/store";
 import { useIsNetworkError } from "src/hooks";
 
 import classes from "./landing.module.css";
+import { darkModeActions } from "src/slices/dark-mode-slice";
 
 export const Landing = () => {
   const weatherState = useAppSelector((state) => state.weatherReducer);
@@ -71,6 +72,7 @@ export const Landing = () => {
 
   useEffect(() => {
     dispatch(favoritesActions.initFromLocalStorage());
+    dispatch(darkModeActions.initFromLocalStorage());
     //eslint-disable-next-line
   }, []);
 

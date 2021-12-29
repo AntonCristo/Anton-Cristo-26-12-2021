@@ -19,6 +19,12 @@ export const darkModeSlice = createSlice({
         JSON.stringify({ isDarkMode: state.darkMode })
       );
     },
+    initFromLocalStorage: (state) => {
+      const darkModeAsString = localStorage.getItem("darkMode");
+      if (darkModeAsString) {
+        state.darkMode = JSON.parse(darkModeAsString).isDarkMode;
+      }
+    },
   },
 });
 
