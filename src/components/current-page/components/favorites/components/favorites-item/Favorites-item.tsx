@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { Temperature } from "src/shared";
+import { Temperature, WeatherIcon } from "src/shared";
 import {
   customAlertActions,
   favoritesActions,
@@ -73,8 +73,9 @@ export const FavoritesItem = (props: FavoritesItemProps) => {
       </div>
       <div className={classes.location}>{favorite.locationName}</div>
       <div className={classes.description}>{favorite.description}</div>
+      <WeatherIcon iconNumber={favorite.weatherIcon} />
       <button data-key-id={favorite.locationKeyId} onClick={onRemoveClicked}>
-        remove
+        delete
       </button>
     </div>
   );

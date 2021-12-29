@@ -1,9 +1,9 @@
-import { Temperature } from "src/shared";
-import { DailyForecast } from "src/slices";
 import dayjs from "dayjs";
+import { useAppSelector } from "src/store";
+import { Temperature, WeatherIcon } from "src/shared";
+import { DailyForecast } from "src/slices";
 
 import classes from "./forecast-item.module.css";
-import { useAppSelector } from "src/store";
 
 type ForecastItemProps = {
   foreCastItem: DailyForecast;
@@ -17,6 +17,8 @@ export const ForecastItem = (props: ForecastItemProps) => {
 
   const _maxTemp = foreCastItem.maxTemp[displayUnit].value || 0;
   const _minTemp = foreCastItem.minTemp[displayUnit].value || 0;
+  const _dayIcon = foreCastItem.dayIcon;
+  const _nightIcon = foreCastItem.nightIcon;
 
   return (
     <div className={classes.forecastItem}>
@@ -30,7 +32,8 @@ export const ForecastItem = (props: ForecastItemProps) => {
       </div>
       <div className={classes.descriptionText}>
         <div className={classes.descriptionTextHeader}>Day</div>
-        {foreCastItem.dayDescription}
+        <div className={classes.text}>{foreCastItem.dayDescription}</div>
+        <WeatherIcon iconNumber={_dayIcon} />
       </div>
       <div className={classes.descriptionText}>
         <div
@@ -40,7 +43,8 @@ export const ForecastItem = (props: ForecastItemProps) => {
         >
           Night
         </div>
-        {foreCastItem.nightDescription}
+        <div className={classes.text}>{foreCastItem.nightDescription}</div>
+        <WeatherIcon iconNumber={_nightIcon} />
       </div>
     </div>
   );

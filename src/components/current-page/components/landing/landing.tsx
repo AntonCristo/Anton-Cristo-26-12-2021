@@ -98,7 +98,9 @@ export const Landing = () => {
 
   return (
     <div className={classes.landing}>
-      <div>{weatherState.networkError ? "Error :\\" : "Welcome"}</div>
+      <div>
+        {weatherState.networkError ? "Service not available :\\" : "Welcome"}
+      </div>
       {weatherState.networkError ? null : <Spinner />}
     </div>
   );

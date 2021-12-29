@@ -17,5 +17,6 @@
     text-align: center;
     border: 1px solid var(--purple);
     border-radius: 6px;
+    margin-bottom: 15px;
   }
 }

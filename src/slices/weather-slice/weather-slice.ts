@@ -15,7 +15,9 @@ export interface DailyForecast {
   maxTemp: Temperature;
   minTemp: Temperature;
   dayDescription: string;
+  dayIcon: number;
   nightDescription: string;
+  nightIcon: number;
 }
 
 export interface Forecast {
@@ -29,6 +31,7 @@ export interface WeatherState {
   locationKey: string;
   temperature: Temperature;
   description: string;
+  icon: number;
   displayUnit: "F" | "C";
   defaultLocationKey: string;
   defaultLocationName: string;
@@ -43,6 +46,7 @@ const initialState: WeatherState = {
   location: "",
   locationKey: "",
   description: "",
+  icon: 0,
   temperature: {
     C: { value: undefined },
     F: { value: undefined },
@@ -72,6 +76,7 @@ export const weatherSlice = createSlice({
       .addCase(fetchCurrentWeatherByLocationKey.fulfilled, (state, action) => {
         if (action.payload) {
           state.description = action.payload.WeatherText;
+          state.icon = action.payload.WeatherIcon;
           state.temperature = {
             C: { value: action.payload.Temperature.Metric.Value },
             F: { value: action.payload.Temperature.Imperial.Value },
@@ -88,7 +93,9 @@ export const weatherSlice = createSlice({
             const validItem: DailyForecast = {
               date: forecastItem.Date,
               dayDescription: forecastItem.Day.IconPhrase,
+              dayIcon: forecastItem.Day.Icon,
               nightDescription: forecastItem.Night.IconPhrase,
+              nightIcon: forecastItem.Night.Icon,
               maxTemp: {
                 C: { value: forecastItem.Temperature.Maximum.Value },
                 F: {

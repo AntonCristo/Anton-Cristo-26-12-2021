@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Temperature } from "src/shared";
+import { Temperature, WeatherIcon } from "src/shared";
 import { favoritesActions, FavoritesItem } from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
 
@@ -20,6 +20,7 @@ export const CurrentWeather = () => {
   const _displayUnit = currentWeather.displayUnit;
   const _value = currentWeather.temperature[_displayUnit].value || 20;
   const _description = currentWeather.description;
+  const _icon = currentWeather.icon;
 
   useEffect(() => {
     const isFavorite = Object.keys(favorites).includes(
@@ -32,6 +33,7 @@ export const CurrentWeather = () => {
         description: currentWeather.description,
         locationKeyId: currentWeather.locationKey,
         locationName: currentWeather.location,
+        weatherIcon: currentWeather.icon,
       };
       dispatch(favoritesActions.addToFavorites(currentAsFavoritesItem));
     }
@@ -44,6 +46,7 @@ export const CurrentWeather = () => {
       <Temperature value={_value} unit={_displayUnit} fontSize="L" />
       <Location location={_location} />
       <WeatherDescription description={_description} />
+      <WeatherIcon iconNumber={_icon} />
       <UnitsToggle />
       <AddToFavorites />
     </div>

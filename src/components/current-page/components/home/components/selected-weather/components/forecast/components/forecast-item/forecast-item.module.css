@@ -31,8 +31,7 @@
   font-size: var(--font-size-extra-large);
   text-transform: capitalize;
   font-family: "outfit-900", Helvetica, sans-serif;
-  color: #fff;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+  color: var(--purple);
 }
 .descriptionText {
   position: relative;
@@ -45,23 +44,24 @@
   text-align: center;
   padding: 20px;
 }
+.text {
+  margin-bottom: 10px;
+}
 .descriptionTextHeader {
   position: absolute;
-  font-family: "outfit-400", Helvetica, sans-serif;
-  top: -10px;
+  top: -12px;
   left: 10px;
-  font-size: 12px;
   border: 2px solid var(--blue);
   border-radius: 3px;
-  padding: 3px;
-  background-color: rgba(255, 255, 255);
-  color: rgba(0, 0, 0, 0.8);
+  background-color: #fff;
+  font-size: 12px;
+  padding: 4px 6px;
+  color: var(--blue);
 }
 .nightHeader {
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
 }
-
 @media screen and (max-width: 800px) {
   .forecastItem {
     width: 100%;
