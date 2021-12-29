@@ -1,10 +1,12 @@
 import { MouseEvent } from "react";
+import { useIsDarkMode } from "src/hooks";
 import { weatherActions } from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
 
 import classes from "./units-toggle.module.css";
 
 export const UnitsToggle = () => {
+  const isDarkMode = useIsDarkMode();
   const dispatch = useAppDispatch();
   const displayUnit = useAppSelector(
     (state) => state.weatherReducer
@@ -32,7 +34,9 @@ export const UnitsToggle = () => {
         data-unit={"C"}
         className={[
           classes.toggleButton,
-          displayUnit === "C" && classes.active,
+          displayUnit === "C" &&
+            (isDarkMode ? classes.darkModeActive : classes.active),
+          isDarkMode && classes.darkMode,
         ].join(" ")}
       >
         C
@@ -42,7 +46,9 @@ export const UnitsToggle = () => {
         data-unit={"F"}
         className={[
           classes.toggleButton,
-          displayUnit === "F" && classes.active,
+          displayUnit === "F" &&
+            (isDarkMode ? classes.darkModeActive : classes.active),
+          isDarkMode && classes.darkMode,
         ].join(" ")}
       >
         F

@@ -1,3 +1,6 @@
+.favorites {
+  min-height: 100vh;
+}
 .itemsWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -10,4 +13,7 @@
   font-size: 24px;
   font-family: "outfit-900", Helvetica, sans-serif;
   text-decoration: underline;
+}
+.darkMode {
+  color: #fff;
 }

@@ -24,3 +24,13 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+
+.darkMode {
+  background: var(--dark-mode-background-gradient);
+}
+.darkModeColor {
+  color: var(--main-color);
+}
+.darkModeBorderTop {
+  border-top: 2px solid var(--purple);
+}

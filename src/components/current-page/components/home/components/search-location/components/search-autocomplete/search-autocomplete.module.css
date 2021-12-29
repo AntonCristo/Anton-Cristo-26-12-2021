@@ -21,6 +21,9 @@
 .searchAutocomplete > li:nth-last-child(1) {
   margin-bottom: 0;
 }
+.darkMode {
+  background-color: var(--dark-mode-black);
+}
 
 @media screen and (max-width: 800px) {
   .searchAutocomplete {

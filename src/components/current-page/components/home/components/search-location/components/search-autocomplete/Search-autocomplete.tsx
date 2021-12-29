@@ -1,3 +1,4 @@
+import { useIsDarkMode } from "src/hooks";
 import { LocationResult } from "src/slices";
 import { ListItem } from "./components";
 
@@ -9,8 +10,15 @@ export type SearchAutoCompleteProps = {
 
 export const SearchAutoComplete = (props: SearchAutoCompleteProps) => {
   const { autocompleteResults } = props;
+  const isDarkMode = useIsDarkMode();
+
   return autocompleteResults.length ? (
-    <ul className={classes.searchAutocomplete}>
+    <ul
+      className={[
+        classes.searchAutocomplete,
+        isDarkMode && classes.darkMode,
+      ].join(" ")}
+    >
       {autocompleteResults.map((autocomplete, index) => (
         <ListItem key={index + autocomplete.key} item={autocomplete} />
       ))}

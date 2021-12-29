@@ -1,3 +1,5 @@
+import { useIsDarkMode } from "src/hooks";
+
 import classes from "./weather-description.module.css";
 
 type WeatherDescriptionProps = {
@@ -6,5 +8,16 @@ type WeatherDescriptionProps = {
 
 export const WeatherDescription = (props: WeatherDescriptionProps) => {
   const { description } = props;
-  return <div className={classes.weatherDescription}>{description}</div>;
+  const isDarkMode = useIsDarkMode();
+
+  return (
+    <div
+      className={[
+        classes.weatherDescription,
+        isDarkMode && classes.darkMode,
+      ].join(" ")}
+    >
+      {description}
+    </div>
+  );
 };

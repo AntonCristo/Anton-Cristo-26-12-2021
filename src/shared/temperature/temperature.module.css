@@ -21,3 +21,6 @@
   color: var(--purple);
   cursor: pointer;
 }
+.darkMode {
+  color: var(--dark-mode-gray);
+}

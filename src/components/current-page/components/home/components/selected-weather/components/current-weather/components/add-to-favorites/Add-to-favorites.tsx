@@ -8,8 +8,10 @@ import {
 import { useAppDispatch, useAppSelector } from "src/store";
 
 import classes from "./add-to-favorites.module.css";
+import { useIsDarkMode } from "src/hooks";
 
 export const AddToFavorites = () => {
+  const isDarkMode = useIsDarkMode();
   const dispatch = useAppDispatch();
   const currentWeather = useAppSelector((state) => state.weatherReducer);
   const favorites = useAppSelector((state) => state.favoritesReducer).favorites;
@@ -48,7 +50,9 @@ export const AddToFavorites = () => {
           ? removeCurrentLocationFromVaorites
           : addCurrentLocationToFavorites
       }
-      className={classes.addToFavorite}
+      className={[classes.addToFavorite, isDarkMode && classes.darkMode].join(
+        " "
+      )}
     >
       {isFavorite ? "Saved!" : "Save"}{" "}
       <img src={isFavorite ? favoriteIconGold : favoriteIcon} alt="" />
