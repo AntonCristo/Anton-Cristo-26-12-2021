@@ -8,6 +8,9 @@
   text-transform: capitalize;
   color: var(--purple);
 }
+.darkMode {
+  color: var(--main-color);
+}
 
 @media screen and (max-width: 800px) {
   .weatherDescription {

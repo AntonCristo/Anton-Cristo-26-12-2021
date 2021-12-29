@@ -9,7 +9,18 @@ body {
 
 :root {
   --light-mode-box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.3);
+  --dark-mode-box-shadow: 1px 1px 6px 3px rgba(255, 255, 255, 0.7);
+  --dark-mode-background-gradient: linear-gradient(
+    0deg,
+    rgba(130, 130, 132, 1) 10%,
+    rgba(71, 82, 85, 1) 30%,
+    rgba(36, 36, 38, 1) 60%
+  );
   --main-color: #fff;
+  --dark-mode-black: #1b1c1c;
+  --dark-mode-gray: #828284;
+  --dark-mode-gray-secondary: #475255;
+  --dark-mode-primary: #34a3af;
   --pink: #ef7680;
   --purple: #a159a0;
   --blue: #6650af;

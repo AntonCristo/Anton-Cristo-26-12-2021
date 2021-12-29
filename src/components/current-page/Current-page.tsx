@@ -15,7 +15,6 @@ export const CurrentPage = () => {
     case "/favorites":
       return <Favorites />;
     default:
-      //TODO: 404 page
-      return <div>404 not found</div>;
+      return <Landing />;
   }
 };

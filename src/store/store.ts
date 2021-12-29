@@ -5,6 +5,7 @@ import {
   customAlertReducer,
   weatherReducer,
   favoritesReducer,
+  darkModeReducer,
 } from "src/slices";
 
 export const store = configureStore({
@@ -14,6 +15,7 @@ export const store = configureStore({
     customAlertReducer,
     weatherReducer,
     favoritesReducer,
+    darkModeReducer,
   },
 });
 

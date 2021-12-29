@@ -55,14 +55,17 @@
   border: none;
   font-family: "outfit-500", Helvetica, sans-serif;
   color: var(--pink);
-}
-.footer > button:hover {
-  background-color: var(--blue);
-  color: #fff;
   cursor: pointer;
 }
 .footer > button:focus {
   outline: none;
+}
+.darkModeBackgroundColor {
+  background: rgba(0, 0, 0, 0.4);
+}
+.darkMode > button,
+.darkMode {
+  color: var(--dark-mode-black);
 }
 
 @keyframes dropFromAbove {

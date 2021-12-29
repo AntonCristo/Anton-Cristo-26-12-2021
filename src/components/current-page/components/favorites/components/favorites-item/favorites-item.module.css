@@ -53,7 +53,12 @@
   color: var(--pink);
   font-family: "outfit-500", Helvetica, sans-serif;
 }
-
+.darkMode {
+  background: var(--dark-mode-background-gradient);
+}
+.darkModeColor {
+  color: var(--purple);
+}
 @media screen and (max-width: 800px) {
   .favoritesItem {
     width: 100%;

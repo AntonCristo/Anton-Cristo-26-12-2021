@@ -5,6 +5,7 @@ import { getInlineStyleByFontSize } from "./utils";
 import classes from "./temperature.module.css";
 import { useAppDispatch } from "src/store";
 import { weatherActions } from "src/slices";
+import { useIsDarkMode } from "src/hooks";
 
 type TemperatureProps = {
   fontSize: "L" | "M" | "S";
@@ -14,6 +15,7 @@ type TemperatureProps = {
 
 export const Temperature = (props: TemperatureProps) => {
   const { fontSize, unit, value } = props;
+  const isDarkMode = useIsDarkMode();
   const dispatch = useAppDispatch();
 
   const helperStyle: { [x: string]: CSSProperties } =
@@ -25,14 +27,20 @@ export const Temperature = (props: TemperatureProps) => {
 
   return (
     <div className={classes.temperature}>
-      <div style={helperStyle.valueStyle} className={classes.value}>
+      <div
+        style={helperStyle.valueStyle}
+        className={[classes.value, isDarkMode && classes.darkMode].join(" ")}
+      >
         {value}
-        <div style={helperStyle.circleStyle} className={classes.circle}></div>
+        <div
+          style={helperStyle.circleStyle}
+          className={[classes.circle, isDarkMode && classes.darkMode].join(" ")}
+        ></div>
       </div>
       <div
         title={"Toggle unit F/C"}
         style={helperStyle.unitStyle}
-        className={classes.units}
+        className={[classes.units, isDarkMode && classes.darkMode].join(" ")}
         onClick={onUnitClickHandler}
       >
         {unit}

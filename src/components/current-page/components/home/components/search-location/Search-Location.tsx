@@ -11,12 +11,14 @@ import {
 import { SearchAutoComplete, ClearSearch } from "./components";
 
 import classes from "./search-location.module.css";
+import { useIsDarkMode } from "src/hooks";
 
 const PLACEHOLDER = "Type location..";
 const INVALID_INPUT_PATTERN = /[^a-zA-Z0-9 ]/g;
 
 export const SearchLocation = () => {
   const dispatch = useAppDispatch();
+  const isDarkMode = useIsDarkMode();
   const currentSearch = useAppSelector(
     (state) => state.locationSearchReducer
   ).currentSearch;
@@ -80,7 +82,9 @@ export const SearchLocation = () => {
           onChange={onLocationSearchChangeHandler}
           lang="EN"
           placeholder={PLACEHOLDER}
-          className={classes.searchInput}
+          className={[classes.searchInput, isDarkMode && classes.darkMode].join(
+            " "
+          )}
           type="text"
         />
         <ClearSearch />

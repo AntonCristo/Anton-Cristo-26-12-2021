@@ -1,4 +1,5 @@
 import { MouseEvent } from "react";
+import { useIsDarkMode } from "src/hooks";
 import { Temperature, WeatherIcon } from "src/shared";
 import {
   customAlertActions,
@@ -19,6 +20,7 @@ type FavoritesItemProps = {
 
 export const FavoritesItem = (props: FavoritesItemProps) => {
   const { favorite } = props;
+  const isDarkMode = useIsDarkMode();
   const displayUnit = useAppSelector(
     (state) => state.weatherReducer
   ).displayUnit;
@@ -62,7 +64,9 @@ export const FavoritesItem = (props: FavoritesItemProps) => {
   return (
     <div
       onClick={setHomePageToDisplayClickedWeather}
-      className={classes.favoritesItem}
+      className={[classes.favoritesItem, isDarkMode && classes.darkMode].join(
+        " "
+      )}
     >
       <div className={classes.temperatureGuard}>
         <Temperature
@@ -72,7 +76,14 @@ export const FavoritesItem = (props: FavoritesItemProps) => {
         />
       </div>
       <div className={classes.location}>{favorite.locationName}</div>
-      <div className={classes.description}>{favorite.description}</div>
+      <div
+        className={[
+          classes.description,
+          isDarkMode && classes.darkModeColor,
+        ].join(" ")}
+      >
+        {favorite.description}
+      </div>
       <WeatherIcon iconNumber={favorite.weatherIcon} />
       <button data-key-id={favorite.locationKeyId} onClick={onRemoveClicked}>
         delete

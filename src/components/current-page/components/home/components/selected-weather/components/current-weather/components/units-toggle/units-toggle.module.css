@@ -18,7 +18,16 @@
   color: #fff;
   background-color: var(--blue);
 }
-
+.darkMode {
+  background-color: transparent;
+  color: var(--main-color);
+}
+.darkMode:hover,
+.darkModeActive {
+  cursor: pointer;
+  color: var(--dark-mode-black);
+  background-color: var(--main-color);
+}
 @media screen and (max-width: 800px) {
   .unitsToggle {
     display: none;
