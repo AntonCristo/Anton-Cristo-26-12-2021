@@ -43,7 +43,8 @@
   word-break: break-all;
   text-transform: capitalize;
   color: #fff;
-  font-family: "outfit-600", Helvetica, sans-serif;
+  font-size: var(--font-size-large);
+  font-family: "outfit-800", Helvetica, sans-serif;
 }
 .description {
   width: 100%;

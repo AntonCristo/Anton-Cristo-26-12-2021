@@ -14,10 +14,12 @@
   font-family: "outfit-900", Helvetica, sans-serif;
   font-size: 120px;
   color: #fff;
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {
   .landing {
     font-size: 60px;
+    text-align: center;
   }
 }

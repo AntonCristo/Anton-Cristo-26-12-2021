@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchLocationFromApiByGeoLocation } from "src/services/autocomplete-service";
+import { geolocationService } from "src/services";
 import { Spinner } from "src/shared";
 import {
   navigationActions,
@@ -35,7 +35,8 @@ export const Landing = () => {
   };
 
   const accessGrantedToClientsLocation = (lat: number, lon: number) => {
-    fetchLocationFromApiByGeoLocation(lat, lon)
+    geolocationService
+      .fetchLocationFromApiByGeoLocation(lat, lon)
       .then((location) => {
         const clientKey = location.data.Key;
         const clientLocationName = location.data.LocalizedName;

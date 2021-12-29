@@ -1,10 +1,6 @@
 import axios from "axios";
 import { LocationResult } from "src/slices";
-import {
-  AUTOCOMPLETE_REQUEST_URL,
-  API_KEY,
-  GEOLOCATION_REQUEST_URL,
-} from "src/constants";
+import { AUTOCOMPLETE_REQUEST_URL, API_KEY } from "src/constants";
 
 export const fetchAutocompleteFromApi = async (searchText: string) => {
   return axios
@@ -22,22 +18,5 @@ export const fetchAutocompleteFromApi = async (searchText: string) => {
         };
         return locationResult;
       });
-    });
-};
-
-export const fetchLocationFromApiByGeoLocation = async (
-  lat: number,
-  lon: number
-) => {
-  return axios
-    .get(GEOLOCATION_REQUEST_URL, {
-      params: {
-        apikey: API_KEY,
-        q: `${lat},${lon}`,
-        toplevel: false,
-      },
-    })
-    .then((location) => {
-      return location;
     });
 };
