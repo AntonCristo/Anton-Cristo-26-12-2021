@@ -1,13 +1,13 @@
 export const API_KEY = "QzNYxOsmDtMbqTSKYkGzlk5EGNt6ZK0O";
 
 export const AUTOCOMPLETE_REQUEST_URL =
-  "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
+  "https://dataservice.accuweather.com/locations/v1/cities/autocomplete";
 
 export const CURRENT_WEATHER_REQUEST_URL =
-  "http://dataservice.accuweather.com/currentconditions/v1/";
+  "https://dataservice.accuweather.com/currentconditions/v1/";
 
 export const FIVE_DAY_FORECAST_REQUEST_URL =
-  "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 
 export const GEOLOCATION_REQUEST_URL =
-  "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
+  "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
