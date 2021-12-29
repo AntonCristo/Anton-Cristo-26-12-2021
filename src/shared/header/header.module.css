@@ -38,6 +38,15 @@
   display: flex;
   align-items: center;
 }
+.darkMode {
+  background: linear-gradient(
+    47deg,
+    rgba(52, 163, 175, 1) 10%,
+    rgba(71, 82, 85, 1) 30%,
+    rgba(36, 36, 38, 1) 60%
+  );
+  box-shadow: var(--dark-mode-box-shadow);
+}
 
 @media screen and (max-width: 1600px) {
   .header {
