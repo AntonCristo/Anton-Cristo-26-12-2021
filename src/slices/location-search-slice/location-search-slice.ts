@@ -9,11 +9,13 @@ export interface LocationResult {
 export interface LocationSearchState {
   currentSearch: string;
   searchResults: LocationResult[];
+  networkError: boolean;
 }
 
 const initialState: LocationSearchState = {
   currentSearch: "",
   searchResults: [],
+  networkError: false,
 };
 
 export const locationSearchSlice = createSlice({
@@ -25,12 +27,13 @@ export const locationSearchSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchAutocompleteResultsFromApi.fulfilled,
-      (state, action) => {
+    builder
+      .addCase(fetchAutocompleteResultsFromApi.fulfilled, (state, action) => {
         state.searchResults = action.payload;
-      }
-    );
+      })
+      .addCase(fetchAutocompleteResultsFromApi.rejected, (state) => {
+        state.networkError = true;
+      });
   },
 });
 

@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { weatherService } from "src/services";
+import { weatherApiService } from "src/services";
 
 export const fetchCurrentWeatherByLocationKey = createAsyncThunk(
   "weather/fecthCurrentWeather",
   async (locationKey: string) => {
-    const response = await weatherService.fetchCurrentWeatherByLocationKey(
+    const response = await weatherApiService.fetchCurrentWeatherByLocationKey(
       locationKey
     );
 
@@ -15,7 +15,7 @@ export const fetchCurrentWeatherByLocationKey = createAsyncThunk(
 export const fetchFiveDayForecastByLocationKey = createAsyncThunk(
   "weather/fecthFiveDayForecast",
   async (locationKey: string) => {
-    const response = await weatherService.fetchFiveDayForecastByLocationKey(
+    const response = await weatherApiService.fetchFiveDayForecastByLocationKey(
       locationKey
     );
 

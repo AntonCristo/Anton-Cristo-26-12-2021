@@ -9,8 +9,11 @@ import classes from "./home.module.css";
 export const Home = () => {
   const dispatch = useAppDispatch();
   const weatherState = useAppSelector((state) => state.weatherReducer);
+  const locationAutocompleteState = useAppSelector(
+    (state) => state.locationSearchReducer
+  );
 
-  if (weatherState.networkError) {
+  if (weatherState.networkError || locationAutocompleteState.networkError) {
     dispatch(
       customAlertActions.customAlert(
         "The Service is unavailable at the moment, please try again later."
