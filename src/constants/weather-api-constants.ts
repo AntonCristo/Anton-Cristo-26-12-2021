@@ -1,4 +1,4 @@
-export const API_KEY = "QzNYxOsmDtMbqTSKYkGzlk5EGNt6ZK0O";
+export const API_KEY = "Z8AzhopWPYN27BR7zqVFSotNuOX5KvPk";
 
 export const AUTOCOMPLETE_REQUEST_URL =
   "https://dataservice.accuweather.com/locations/v1/cities/autocomplete";
