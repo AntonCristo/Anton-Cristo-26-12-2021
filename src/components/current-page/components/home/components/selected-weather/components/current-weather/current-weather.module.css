@@ -4,6 +4,7 @@
   border-radius: 4px;
   display: flex;
   align-items: flex-start;
+  cursor: default;
 }
 
 @media screen and (max-width: 800px) {

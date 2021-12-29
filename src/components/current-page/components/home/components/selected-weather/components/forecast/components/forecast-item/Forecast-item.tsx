@@ -31,18 +31,12 @@ export const ForecastItem = (props: ForecastItemProps) => {
         <Temperature value={_maxTemp} unit={displayUnit} fontSize="S" />
       </div>
       <div className={classes.descriptionText}>
-        <div className={classes.descriptionTextHeader}>Day</div>
+        <div className={classes.descriptionTextHeader}>DAY</div>
         <div className={classes.text}>{foreCastItem.dayDescription}</div>
         <WeatherIcon iconNumber={_dayIcon} />
       </div>
       <div className={classes.descriptionText}>
-        <div
-          className={[classes.descriptionTextHeader, classes.nightHeader].join(
-            " "
-          )}
-        >
-          Night
-        </div>
+        <div className={classes.descriptionTextHeader}>NIGHT</div>
         <div className={classes.text}>{foreCastItem.nightDescription}</div>
         <WeatherIcon iconNumber={_nightIcon} />
       </div>

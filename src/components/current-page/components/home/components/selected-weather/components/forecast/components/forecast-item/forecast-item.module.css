@@ -4,6 +4,7 @@
   margin-right: 20px;
   margin-bottom: 20px;
   padding: 20px;
+  padding-bottom: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -11,6 +12,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   box-shadow: 1px 1px 10px 0px rgb(102, 80, 175, 0.2);
+  cursor: default;
 }
 .forecastItem > img {
   width: 90px;
@@ -35,33 +37,30 @@
 }
 .descriptionText {
   position: relative;
-  border: 2px solid var(--blue);
-  border-radius: 3px;
+  border-top: 2px solid var(--purple);
   width: 100%;
-  color: var(--pink);
+  color: #fff;
   font-family: "outfit-600", Helvetica, sans-serif;
   margin-bottom: 20px;
   text-align: center;
   padding: 20px;
+  color: var(--pink);
 }
 .text {
   margin-bottom: 10px;
 }
 .descriptionTextHeader {
   position: absolute;
-  top: -12px;
-  left: 10px;
-  border: 2px solid var(--blue);
-  border-radius: 3px;
-  background-color: #fff;
-  font-size: 12px;
-  padding: 4px 6px;
-  color: var(--blue);
-}
-.nightHeader {
-  background-color: rgba(0, 0, 0, 0.8);
+  top: -10px;
+  left: calc(50% - 25px);
+  width: 50px;
+  border: 1px solid var(--purple);
+  background-color: var(--purple);
   color: #fff;
+  border-radius: 3px 3px 0 0;
+  font-size: 12px;
 }
+
 @media screen and (max-width: 800px) {
   .forecastItem {
     width: 100%;
