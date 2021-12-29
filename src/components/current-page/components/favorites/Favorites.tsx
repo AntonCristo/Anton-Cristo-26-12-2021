@@ -22,7 +22,7 @@ export const Favorites = () => {
       >
         {hasFavorites
           ? "Your favorite locations, click to see current weather"
-          : "Save your default/Searched location to view on this page"}
+          : "Save a location to view it on this page"}
       </div>
       <div className={classes.itemsWrapper}>
         {Object.values(favoritesState.favorites).map((favItem, index) => (

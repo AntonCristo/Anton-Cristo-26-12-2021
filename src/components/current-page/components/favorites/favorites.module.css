@@ -17,3 +17,9 @@
 .darkMode {
   color: #fff;
 }
+
+@media screen and (max-width: 800px) {
+  .subHeader {
+    font-size: var(--font-size-small);
+  }
+}
