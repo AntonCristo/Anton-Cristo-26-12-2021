@@ -66,10 +66,10 @@ class WeatherService implements IWeatherService {
         q: searchText,
       },
     });
-    return weatherResponse.data.map((mockLocation: any) => {
+    return weatherResponse.data.map((location: any) => {
       const locationResult: LocationResult = {
-        key: mockLocation.Key,
-        location: mockLocation.LocalizedName,
+        key: location.Key,
+        location: location.LocalizedName,
       };
       return locationResult;
     });

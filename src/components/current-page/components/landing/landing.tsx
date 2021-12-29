@@ -10,15 +10,14 @@ import {
   favoritesActions,
 } from "src/slices";
 import { useAppDispatch, useAppSelector } from "src/store";
+import { useIsNetworkError } from "src/hooks";
 
 import classes from "./landing.module.css";
 
 export const Landing = () => {
   const weatherState = useAppSelector((state) => state.weatherReducer);
-  const locationAutocompleteState = useAppSelector(
-    (state) => state.locationSearchReducer
-  );
   const dispatch = useAppDispatch();
+  const isNetwokError = useIsNetworkError();
 
   const accessDeniedToClientsLoaction = () => {
     dispatch(fetchCurrentWeatherByLocationKey(weatherState.defaultLocationKey))
@@ -76,23 +75,19 @@ export const Landing = () => {
   }, []);
 
   useEffect(() => {
-    if (!weatherState.networkError) {
+    if (!isNetwokError) {
       defaultOrClientLocation();
     }
     //eslint-disable-next-line
   }, []);
 
-  if (weatherState.networkError) {
+  if (isNetwokError) {
     dispatch(
       customAlertActions.customAlert(
         "Service is unavailable right now, please try again later."
       )
     );
   }
-
-  //TODO:create hook to check for app network error state
-  const isNetwokError =
-    weatherState.networkError || locationAutocompleteState.networkError;
 
   const isHomePageReady =
     !isNetwokError &&
