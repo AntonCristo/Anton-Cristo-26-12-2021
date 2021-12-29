@@ -70,6 +70,9 @@ export const weatherSlice = createSlice({
     setDisplayUnit: (state, action: PayloadAction<"F" | "C">) => {
       state.displayUnit = action.payload;
     },
+    setNetworkError: (state, action: PayloadAction<boolean>) => {
+      state.networkError = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
