@@ -54,6 +54,9 @@ export const Landing = () => {
       .then((geolocationResult) => {
         dispatch(weatherActions.setLocationName(geolocationResult[1]));
         dispatch(weatherActions.setLocationKey(geolocationResult[0]));
+      })
+      .catch(() => {
+        dispatch(weatherActions.setNetworkError(true));
       });
   };
 
