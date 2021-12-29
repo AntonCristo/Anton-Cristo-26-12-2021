@@ -27,6 +27,7 @@ export const AddToFavorites = () => {
       description: currentWeather.description,
       locationKeyId: currentWeather.locationKey,
       locationName: currentWeather.location,
+      weatherIcon: currentWeather.icon,
     };
     dispatch(favoritesActions.addToFavorites(currentLocationAsFavoritesItem));
     dispatch(

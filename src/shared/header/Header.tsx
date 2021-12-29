@@ -1,5 +1,6 @@
 import homeIcon from "src/assets/svg/home.svg";
 import favoritesIcon from "src/assets/svg/favorites.svg";
+import sunIcon from "src/assets/svg/wi-day-sunny.svg";
 
 import { NavButton, NavItem } from "./components";
 
@@ -21,7 +22,9 @@ export const Header = () => {
 
   return (
     <div className={classes.header}>
-      <div>Weather Hero</div>
+      <div className={classes.headerText}>
+        Weather Hero <img src={sunIcon} alt="sun-logo" />
+      </div>
       <div className={classes.navigationSection}>
         {navigationItems.map((navItem, index) => (
           <NavButton key={index + navItem.linkTo} navItem={navItem} />

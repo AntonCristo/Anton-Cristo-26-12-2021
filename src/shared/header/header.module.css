@@ -25,6 +25,15 @@
   margin-bottom: 20px;
   cursor: default;
 }
+.headerText {
+  position: relative;
+}
+.headerText > img {
+  position: absolute;
+  left: calc(50% - 15px);
+  top: -20px;
+  width: 30px;
+}
 .navigationSection {
   display: flex;
   align-items: center;
@@ -33,6 +42,11 @@
 @media screen and (max-width: 1600px) {
   .header {
     height: var(--header-tablet-height);
+  }
+  .headerText > img {
+    width: 15px;
+    top: 0px;
+    left: -12px;
   }
 }
 

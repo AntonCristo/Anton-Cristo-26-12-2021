@@ -23,8 +23,9 @@
 @media screen and (max-width: 800px) {
   .addToFavorite {
     margin-top: 20px;
+    padding: 8px 10px;
     width: 100%;
     justify-content: center;
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-large);
   }
 }

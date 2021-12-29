@@ -7,6 +7,7 @@ export interface FavoritesItem {
   locationKeyId: string;
   locationName: string;
   description: string;
+  weatherIcon: number;
   currentWeather: Temperature;
 }
 
