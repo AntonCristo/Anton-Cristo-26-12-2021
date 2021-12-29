@@ -1,11 +1,11 @@
-import { RefObject, useEffect, useRef, KeyboardEvent } from "react";
+import React, { RefObject, useEffect, KeyboardEvent } from "react";
 import { useAppSelector, useAppDispatch } from "src/store";
 import { customAlertActions } from "src/slices";
 
 import classes from "./custom-alert.module.css";
 
 export const CustomAlert = () => {
-  const alertWrapperRef: RefObject<HTMLDivElement> = useRef(null);
+  const alertWrapperRef: RefObject<HTMLDivElement> = React.createRef();
 
   const dispatch = useAppDispatch();
   const alertMessage = useAppSelector(
@@ -19,7 +19,7 @@ export const CustomAlert = () => {
   };
 
   const onKeyDownHandler = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" || event.key === "Enter" || event.key === " ") {
       onConfirmationClickHandler();
     }
   };
