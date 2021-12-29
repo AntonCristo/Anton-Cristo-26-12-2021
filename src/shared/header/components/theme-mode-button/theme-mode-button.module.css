@@ -1,0 +1,38 @@
+.themeModeButton {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--main-color);
+  font-family: "Outfit-400", Helvetica, sans-serif;
+  font-size: var(--font-size-small);
+  display: flex;
+  align-items: center;
+}
+.themeModeButton > span {
+  margin-left: 5px;
+}
+.themeModeButton > img {
+  width: 20px;
+  margin-left: -2px;
+}
+.themeModeButton:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.themeModeButton:focus {
+  outline: none;
+}
+.darkMode {
+  background-color: var(--main-color);
+  color: var(--dark-mode-black);
+}
+
+@media screen and (max-width: 800px) {
+  .themeModeButton > span {
+    display: none;
+  }
+}
