@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { geolocationService } from "src/services";
+import { weatherApiService } from "src/services";
 import { Spinner } from "src/shared";
 import {
   navigationActions,
@@ -15,6 +15,9 @@ import classes from "./landing.module.css";
 
 export const Landing = () => {
   const weatherState = useAppSelector((state) => state.weatherReducer);
+  const locationAutocompleteState = useAppSelector(
+    (state) => state.locationSearchReducer
+  );
   const dispatch = useAppDispatch();
 
   const accessDeniedToClientsLoaction = () => {
@@ -35,7 +38,7 @@ export const Landing = () => {
   };
 
   const accessGrantedToClientsLocation = (lat: number, lon: number) => {
-    geolocationService
+    weatherApiService
       .fetchLocationFromApiByGeoLocation(lat, lon)
       .then((location) => {
         const clientKey = location.data.Key;
@@ -87,8 +90,12 @@ export const Landing = () => {
     );
   }
 
+  //TODO:create hook to check for app network error state
+  const isNetwokError =
+    weatherState.networkError || locationAutocompleteState.networkError;
+
   const isHomePageReady =
-    !weatherState.networkError &&
+    !isNetwokError &&
     weatherState.forecast.fiveDays.length &&
     weatherState.description;
 
@@ -99,10 +106,8 @@ export const Landing = () => {
 
   return (
     <div className={classes.landing}>
-      <div>
-        {weatherState.networkError ? "Service not available :\\" : "Welcome"}
-      </div>
-      {weatherState.networkError ? null : <Spinner />}
+      <div>{isNetwokError ? "Service not available :\\" : "Welcome"}</div>
+      {isNetwokError ? null : <Spinner />}
     </div>
   );
 };
